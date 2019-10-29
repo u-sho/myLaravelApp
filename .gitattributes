@@ -1,0 +1,7 @@
+* text=auto
+*.css linguist-vendored
+*.js linguist-vendored
+*.min.css binary
+*.min.js binary
+*.scss linguist-vendored
+CHANGELOG.md export-ignore
