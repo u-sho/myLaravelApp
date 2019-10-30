@@ -7,7 +7,8 @@ use Illuminate\Http\Response;
 
 class HelloController extends Controller
 {
-    public function __invoke(Request $request, Response $response) {
+    public function __invoke(Request $request, Response $response)
+    {
         $html = <<<EOF
         <html>
         <head>
