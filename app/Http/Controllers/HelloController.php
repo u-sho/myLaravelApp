@@ -7,34 +7,19 @@ use Illuminate\Http\Response;
 
 class HelloController extends Controller
 {
-    public function __invoke(Request $request, Response $response)
+    public function index()
     {
-        $html = <<<EOF
-        <html>
-        <head>
-            <title>Hello</title>
-            <style>
-                body { color: #999; }
-                h1 {
-                    font-size: 15rem;
-                    text-align: right;
-                    color: #f0f0f0;
-                    margin: -100px -1.5rem 0 0;
-                }
-            </style>
-        </head>
-        <body>
-            <h1>Hello</h1>
-            <h3>Request</h3>
-            <p>{$request->fullUrl()}</p>
-            <pre>{$request}</pre>
-            <h3>Response</h3>
-            <pre>{$response}</pre>
-        </body>
-        </html>
-        EOF;
+        return view('hello.index');
+    }
 
-        $response->setContent($html);
-        return $response;
+    public function post(Request $request, Response $response)
+    {
+        $data = [
+            'msg' => $request->msg,
+            'url' => $request->fullUrl(),
+            'request' => $request,
+            'response' => $response,
+        ];
+        return view('hello.index', $data);
     }
 }
